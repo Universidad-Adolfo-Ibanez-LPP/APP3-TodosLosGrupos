@@ -61,3 +61,38 @@ function findPaths(matriz, path,  i, j, salida, caminos, posicion, camino) {
             findPaths(matriz, path, i, j + 1, salida, caminos, posicion, camino);
         }
     }
+    //izquierda
+    if ((i >= 0 && i < M && j - 1 >= 0 && j - 1 < N)) {
+        if(matriz[i][j-1] === 0 && getCamino(path,`[${i},${j-1}]`, `[${i},${j-1}]`) === false) {
+            posicion.pop()
+            posicion.pop()
+            findPaths(matriz, path, i, j - 1, salida, caminos, posicion, camino);
+        }
+    }
+    //abajo
+    if ((i + 1 >= 0 && i + 1 < M && j >= 0 && j < N)) {
+        if(matriz[i+1][j] === 0 && getCamino(path,`[${i+1},${j}]`, `[${i+1},${j}]`) === false) {
+            posicion.pop()
+            posicion.pop()
+            findPaths(matriz, path, i + 1, j, salida, caminos, posicion, camino);
+        }
+    }
+    //arriba
+    if ((i - 1 >= 0 && i - 1 < M && j >= 0 && j < N)) {
+        if(matriz[i-1][j] === 0 && getCamino(path,`[${i-1},${j}]`, `[${i-1},${j}]`) === false) {
+            posicion.pop()
+            posicion.pop()
+            findPaths(matriz, path, i - 1, j, salida, caminos, posicion, camino);
+        }
+    }
+    // backtrack: remove the current cell from the path
+    posicion.pop()
+    posicion.pop()
+    camino.pop()
+    path.pop();
+}
+function getCamino(caminos, camino, camino_buscar) {
+    return caminos.some(function (camino) {
+        return camino === camino_buscar;
+    })
+}
