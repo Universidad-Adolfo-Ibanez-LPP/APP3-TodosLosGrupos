@@ -37,7 +37,7 @@ function findPaths(matriz, path,  i, j, salida, caminos, posicion, camino) {
         camino.push(pos)
         let camino_copy = camino.slice()
         caminos.push(camino_copy)
-        fs.writeFile('hola.txt', JSON.stringify(caminos), function (err) {
+        fs.writeFile('output.txt', JSON.stringify(caminos), function (err) {
             if (err) {
                 console.error('\x1b[31m', 'No se pudo ejecutar la aplicacion');
             }
