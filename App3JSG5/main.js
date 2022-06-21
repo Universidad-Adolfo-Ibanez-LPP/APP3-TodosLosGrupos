@@ -96,3 +96,31 @@ function getCamino(caminos, camino, camino_buscar) {
         return camino === camino_buscar;
     })
 }
+function EntradaYSalida(matriz, permiso) {
+    if(permiso === 0) {
+        let puntoEntrada = 0
+        const PosicionEntrada = () => new Promise((resolve) => {
+            if ((puntoEntrada * matriz.length) % matriz.flat(1).length === 0 && matriz.flat(1)[puntoEntrada] === 0) {
+                resolve(puntoEntrada)
+            } else {
+                puntoEntrada++;
+                resolve(PosicionEntrada());
+            }
+        });
+        PosicionEntrada().then(() => {return puntoEntrada})
+        return puntoEntrada
+    }
+    else {
+        let puntoSalida = 0
+        const PosicionSalida = () => new Promise((resolve) => {
+            if (((puntoSalida + 1) * matriz.length) % matriz.flat(1).length === 0 && matriz.flat(1)[puntoSalida] === 0) {
+                resolve(puntoSalida)
+            } else {
+                puntoSalida++;
+                resolve(PosicionSalida());
+            }
+        });
+        PosicionSalida().then(() => {return puntoSalida})
+        return puntoSalida
+    }
+}
