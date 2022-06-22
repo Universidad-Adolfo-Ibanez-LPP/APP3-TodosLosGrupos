@@ -17,6 +17,11 @@ fs.readFile('input.txt', 'utf8', (err, data) => {
         let posicion = [];
         let camino = [];
         findPaths(file, path, x, y, salida, caminos, posicion, camino);
+        fs.writeFile('output.txt', JSON.stringify(caminos), function (err) {
+            if (err) {
+                console.error('\x1b[31m', 'No se pudo ejecutar la aplicacion');
+            }
+        });
         console.log("\x1b[32m", 'Ya tenemos todos los caminos posibles!')
     }
 });
@@ -37,15 +42,10 @@ function findPaths(matriz, path,  i, j, salida, caminos, posicion, camino) {
         camino.push(pos)
         let camino_copy = camino.slice()
         caminos.push(camino_copy)
-        fs.writeFile('output.txt', JSON.stringify(caminos), function (err) {
-            if (err) {
-                console.error('\x1b[31m', 'No se pudo ejecutar la aplicacion');
-            }
-        });
         posicion.pop()
         posicion.pop()
         camino.pop()
-        return;
+        return caminos;
     }
 
     posicion.push(i)
