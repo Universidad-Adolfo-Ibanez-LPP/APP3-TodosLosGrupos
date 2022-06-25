@@ -70,3 +70,18 @@ function findPaths(mat, path, i, j, out) {
     path.pop();
 }
 
+var path = [];
+
+
+let x = 0, y = 0;
+
+
+// leemos el archivo y lo guardamos en una variable
+let mat = fs.readFileSync("./input.txt", "utf-8");
+mat = mat.split("\n");
+mat = mat.map(function (line) {
+    return line.split(" ").map(function (num) {
+        return parseInt(num);
+    }
+    );
+});
