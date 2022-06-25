@@ -1,5 +1,39 @@
 var _= require ('underscore')
 
+
+function main(error, data) { //Para pasar los números a una matriz
+    if(error) {
+        throw error;
+    }
+
+    let contents = data.toString();
+    let filas = contents.split("\n");
+    let i = filas.length
+    let j = filas[0].split(" ").length
+    let mat;
+    mat = _.map(filas, (fila)=>{
+            let numbersTextForm = fila.split(" ");
+            let numbers = _.map(numbersTextForm, (number)=>{
+                return parseInt(number)
+            })
+            return numbers;
+        }
+    )
+    var path =  [];
+
+    //como la entrada siempre será un 0 en la primera columna y solo puede haber una entrada su busqueda se simplifica
+    let y=0
+    let x = findentrance(mat,0);
+
+
+    write("[\n")
+    findPaths(mat, path, x,y);
+    write("]");
+
+}
+
+
+
 function write(data){
     fs.appendFile(__dirname+"/output.txt", data, err => {
         if (err) {
@@ -62,18 +96,6 @@ function findPaths( mat, path,  i, j) {
 
 
 
-`let mat= funcion que lea un archivo como matriz`
-let mat =[ [ 1, 0, 0, 0, 1 ],
-           [ 1, 0, 1, 0, 1 ],
-           [ 0, 0, 1, 0, 1 ],
-           [ 1, 0, 0, 0, 0 ],
-           [ 1, 0, 0, 0, 1 ]];
-
-let path =  [];
-
-`let x= funcion que deje a x en la posicion de la unica fila en la cual puede haber un 0 en la primera columna`
-let y=0;
-let x = 2
 
 write("[\n")
 findPaths(mat, path, x,y);
