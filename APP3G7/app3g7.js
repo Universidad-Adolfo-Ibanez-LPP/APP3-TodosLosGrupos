@@ -85,3 +85,18 @@ mat = mat.map(function (line) {
     }
     );
 });
+
+var out = [];
+
+findPaths(mat, path, x, y, out);
+
+console.log("Path:" + " " + out);
+
+// guardamos el resultado en un archivo txt
+var file = './output.txt';
+fs.writeFile(file, out.toString(), function (err) {
+    if (err) {
+        console.log(err);
+    }
+}
+);
