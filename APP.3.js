@@ -26,4 +26,25 @@
     //console.log(x);
     //return x + start(x+1, mat, o);
 }
+function findPaths(mat, path, i, j, k, v) {
+    // base case
+    if (mat == null || mat.length == 0) {
+        return;
+    }
 
+    //obtengo los extremos de fila y columna
+    let M = mat.length;
+    let N = mat[0].length;
+
+
+
+
+    // Si llegue al final imprimo el path
+    if (j == N - 1) {
+        path.push(`[${i}, ${j}]`);
+        console.log(path);
+        k.push(`[${path}]`);
+        // console.log(k);
+        path.pop();
+        return;
+    }
