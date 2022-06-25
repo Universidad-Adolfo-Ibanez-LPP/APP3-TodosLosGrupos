@@ -17,24 +17,25 @@
  * @param j pos de columna
  */
 
- const {readFileSync, promises: fsPromises} = require('fs');
- let fs = require('fs');
+const {readFileSync, promises: fsPromises} = require('fs');
+let fs = require('fs');
 
 /*
 Funcion que se encarga de leer el archivo .txt de entrada que contiene
 el laberinto y mostrarlo por terminal.
 */
 function imprimir_laberinto(archivo){
-  
-  fs.readFile(archivo, 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data);
-  });
+
+    fs.readFile(archivo, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(data);
+    });
 
 }
+
 /*
 Funcion recursiva que encuentra la posicion inicial(Entrada)
 Busca el primer 0 en la matrixriz, de la primera fila a la ultima
@@ -101,6 +102,7 @@ function Encontrar_rutas(matrix, ruta, i, j, salida) {
     ruta.pop();
 }
 
+
 /*
 Funcion que se encarga de guardar la informacion contenida
 en la variable salida en un archivo de texto que lleva
@@ -148,6 +150,26 @@ la cual es una variable de tipo array
 que almacena las soluciones al laberinto.
 */
 var salida = [];
+
+Encontrar_rutas(matrix, ruta, x, y, salida);
+
+//Se imprimen las soluciones del laberinto
+console.log("");
+console.log("Recorridos");
+console.log(salida);
+
+//Se imprime el laberinto
+console.log("");
+console.log("Laberinto");
+imprimir_laberinto(archivo);
+
+let file = 'output.txt';//Variable que almacena el nombre que tendra el archivo .txt de salida.
+
+/*
+Se guarda la informacion contenida en la variable salida en un
+archivo de texto que lleva por nombre output.txt
+*/
+Guardar_rutas(file);
 
 
 
