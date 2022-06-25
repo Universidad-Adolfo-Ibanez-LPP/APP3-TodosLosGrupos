@@ -48,3 +48,42 @@ function findPaths(mat, path, i, j, k, v) {
         path.pop();
         return;
     }
+    // meto la pos actual como parte del camino
+    path.push(`[${i}, ${j}]`);
+
+
+
+    if(v == 2 ){//Se movio hacia abajo
+        // muevo un lugar a la derecha
+        if (((i >= 0) && (i < M) && (j + 1 >= 0) && (j + 1 < N) && (mat[i][j + 1] == 0)) && !path.includes(`[${i}, ${j + 1}]`)) {
+            findPaths(mat, path, i, j + 1, k, 0);
+        }
+    
+
+        // muevo un lugar abajo
+        if (((i + 1 >= 0) && (i + 1 < M) && (j >= 0) && (j < N) && (mat[i + 1][j] == 0)) && !path.includes(`[${i + 1}, ${j}]`)) {
+            findPaths(mat, path, i + 1, j, k, 2);
+        }
+
+        //muevo un lugar a la izquierda
+        if (((i >= 0) && (i < M) && (j - 1 >= 0) && (j - 1 < N) && (mat[i][j - 1] == 0)) && !path.includes(`[${i}, ${j - 1}]`)) {
+            findPaths(mat, path, i, j - 1, k, 1);
+        }
+    
+        
+    }
+    else if(v == 3){//Se movio hacia arriba
+        // muevo un lugar a la derecha
+        if (((i >= 0) && (i < M) && (j + 1 >= 0) && (j + 1 < N) && (mat[i][j + 1] == 0)) && !path.includes(`[${i}, ${j + 1}]`)) {
+            findPaths(mat, path, i, j + 1, k, 0);
+        }
+    
+        //muevo un lugar a la izquierda
+        if (((i >= 0) && (i < M) && (j - 1 >= 0) && (j - 1 < N) && (mat[i][j - 1] == 0)) && !path.includes(`[${i}, ${j - 1}]`)) {
+            findPaths(mat, path, i, j - 1, k, 1);
+        }
+        //muevo un lugar arriba 
+        if (((i >= 0) && (i < M) && (i-1)>=0 && (j - 1 >= 0) && (j - 1 < N) && (mat[i - 1][j] == 0)) && !path.includes(`[${i - 1}, ${j}]`)) {
+            findPaths(mat, path, i - 1, j, k, 3);
+        }
+    }
