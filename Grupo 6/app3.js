@@ -1,5 +1,6 @@
 var _= require ('underscore')
-
+const fs=require("fs"); //PARA LEER EL ARCHIVO 
+fs.readFile(__dirname+"/input.txt",main) //PARA LEER EL ARCHIVO 
 
 function main(error, data) { //Para pasar los números a una matriz
     if(error) {
@@ -93,10 +94,9 @@ function findPaths( mat, path,  i, j) {
     // backtrack: remove the current cell from the path
     path.pop();
 }
+function validSpot(mat,x,y) { //Funciones que ven que es un 0 
+    return mat[x][y] === 0;
+}
 
 
 
-
-write("[\n")
-findPaths(mat, path, x,y);
-write("]");
