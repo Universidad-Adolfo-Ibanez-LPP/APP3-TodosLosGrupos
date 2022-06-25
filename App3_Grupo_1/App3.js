@@ -101,6 +101,57 @@ function Encontrar_rutas(matrix, ruta, i, j, salida) {
     ruta.pop();
 }
 
+/*
+Funcion que se encarga de guardar la informacion contenida
+en la variable salida en un archivo de texto que lleva
+por nombre output.txt
+*/
+function Guardar_rutas(file){
+
+    fs.writeFile(file, salida.toString(), function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+
+}
+
+var ruta = [];
+
+/*
+Variables que contienen las cordenadas de inicio,
+es decir, la casilla inicial de la cual se partira en
+el laberinto, para este caso se parte en la casilla (0,0).
+La x representa la Fila y la y representa la columna.
+*/
+let x = 0, y = 0;
+
+let archivo = "input.txt";//Variable que almacena el nombre del archivo de entrada.
+
+/*
+open txt file and read the matrixrix
+Se abre el archivo .txt pasado como parametro y se inicializa
+la variable matrix con la informacion contenida en el archivo .txt
+*/
+let matrix = fs.readFileSync(archivo, "utf-8");
+matrix = matrix.split("\n");
+matrix = matrix.map(function (line) {
+    return line.split(" ").map(function (num) {
+            return parseInt(num);
+        }
+    );
+});
+
+/*
+Declararion de la variable salida,
+la cual es una variable de tipo array
+que almacena las soluciones al laberinto.
+*/
+var salida = [];
+
+
+
+
 
 
 
