@@ -50,6 +50,57 @@ function Encontrar_primera_posicion(matrix, n) {
     }
 }
 
+/*
+Funcion encargada de recorrer la matrixriz que es pasada como
+parametro junto con las coordenadas, para asi encontrar las
+posibles soluciones al laberinto.
+*/
+function Encontrar_rutas(matrix, ruta, i, j, salida) {
+    if (ruta.length === 0) {
+        i = Encontrar_primera_posicion(matrix, 0);
+        j = 0;
+    }
+    // base case
+    if (matrix == null || matrix.length == 0) {
+        return;
+    }
+
+    //obtengo los extremos de fila y columna
+    let M = matrix.length;//Largo
+    let N = matrix[0].length;//Ancho
+
+    // Si llegue al final imprimo el ruta
+    if (j == N - 1) {
+        ruta.push(`[${i},${j}]`);
+        salida.push(`[${ruta}]`);
+        ruta.pop();
+        return;
+    }
+
+    // meto la pos actual como parte del camino
+    ruta.push(`[${i},${j}]`);
+
+    //Movientos posibles
+
+    //Movimiento hacia abajo
+    if ((i >= 0 && i < M && j + 1 >= 0 && j + 1 < N && matrix[i][j + 1] === 0 && !ruta.includes(`[${i},${j + 1}]`))) {
+        Encontrar_rutas(matrix, ruta, i, j + 1, salida);
+    }
+    //Movimiento hacia arriba
+    if ((i >= 0 && i < M && j - 1 >= 0 && j - 1 < N && matrix[i][j - 1] === 0 && !ruta.includes(`[${i},${j - 1}]`))) {
+        Encontrar_rutas(matrix, ruta, i, j - 1, salida);
+    }
+    //Movimiento hacia la derecha
+    if ((i + 1 >= 0 && i + 1 < M && j >= 0 && j < N && matrix[i + 1][j] === 0) && !ruta.includes(`[${i + 1},${j}]`)) {
+        Encontrar_rutas(matrix, ruta, i + 1, j, salida);
+    }
+    //Movimiento hacia la izquierda
+    if ((i - 1 >= 0 && i - 1 < M && j >= 0 && j < N && matrix[i - 1][j] === 0) && !ruta.includes(`[${i - 1},${j}]`)) {
+        Encontrar_rutas(matrix, ruta, i - 1, j, salida);
+    }
+    ruta.pop();
+}
+
 
 
 
