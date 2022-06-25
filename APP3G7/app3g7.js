@@ -59,14 +59,9 @@ function findPaths(mat, path, i, j, out) {
     if ((i - 1 >= 0 && i - 1 < M && j >= 0 && j < N && mat[i - 1][j] === 0) && !path.includes(`[${i - 1},${j}]`)) {
         findPaths(mat, path, i - 1, j, out);
     }
-    // else {
-    //     if (j === N) {
-    //         console.log(path);
-    //     }
-    // }
-
-
-    // backtrack: remove the current cell from the path
+    if ((i >= 0 && i < M && j - 1 >= 0 && j - 1 < N && mat[i][j - 1] === 0 && !path.includes(`[${i},${j - 1}]`))) {
+        findPaths(mat, path, i, j - 1, out);
+    }
     path.pop();
 }
 
