@@ -33,6 +33,12 @@ function main(error, data) { //Para pasar los números a una matriz
 
 }
 
+function findentrance(mat,number){ //FUNCION QUE SELECCIONA LA ENTRADA DEL LABERINTO
+    let col0 = mat.map(d => d[0]);
+    return _.findIndex(col0, function (fila) {
+        return fila === number
+    });
+}
 
 
 function write(data){
