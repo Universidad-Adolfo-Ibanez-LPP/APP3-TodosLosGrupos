@@ -35,6 +35,21 @@ function imprimir_laberinto(archivo){
   });
 
 }
+/*
+Funcion recursiva que encuentra la posicion inicial(Entrada)
+Busca el primer 0 en la matrixriz, de la primera fila a la ultima
+Retorna la posicion de la fila.
+*/
+function Encontrar_primera_posicion(matrix, n) {
+    var fila = n;
+    if (matrix[fila][0] == 0) {
+        return fila;
+    } else {
+        fila = fila + 1;
+        return Encontrar_primera_posicion(matrix, fila);
+    }
+}
+
 
 
 
