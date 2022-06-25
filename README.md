@@ -1,3 +1,8 @@
-# APP3-TodosLosGrupos
+# APP3-GRUPO7
 
-Hola a todos. Todos los grupos deben subir solo una carpeta que contenga todo el proyecto! Gracias desde ya!
+Integrantes:
+Macarena Mujica
+Josefina Olmos
+Juan Ayala
+Laura Martínez
+Pablo Moya
