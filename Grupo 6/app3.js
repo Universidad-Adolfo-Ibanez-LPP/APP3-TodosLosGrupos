@@ -1,5 +1,14 @@
 var _= require ('underscore')
 
+function write(data){
+    fs.appendFile(__dirname+"/output.txt", data, err => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
+}
+
 function findPaths( mat, path,  i, j) {
     // base case
     if (mat == null || mat.length == 0) {
@@ -12,7 +21,7 @@ function findPaths( mat, path,  i, j) {
     // if the last cell is reached, print the route
     if (j === N - 1) {
         path.push([i,j]);
-        `funcion que agregue el camino actual al archivo de texto que se va a exportar`
+        write(JSON.stringify(path)+",\n",)
         console.log(path);
         path.pop();
         return;
@@ -52,6 +61,7 @@ function findPaths( mat, path,  i, j) {
 }
 
 
+
 `let mat= funcion que lea un archivo como matriz`
 let mat =[ [ 1, 0, 0, 0, 1 ],
            [ 1, 0, 1, 0, 1 ],
@@ -65,4 +75,6 @@ let path =  [];
 let y=0;
 let x = 2
 
-findPaths(mat, path, x, y);
+write("[\n")
+findPaths(mat, path, x,y);
+write("]");
