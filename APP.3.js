@@ -123,3 +123,29 @@ function findPaths(mat, path, i, j, k, v) {
     //console.log(path);
     path.pop();
 }
+let fs = require('fs');
+
+let mat = fs.readFileSync("./input.txt", "utf-8");
+mat = mat.split("\n");
+mat = mat.map(function (line) {
+    return line.split(" ").map(function (num) {
+        return parseInt(num);
+    }
+    );
+});
+        //console.log(mat[5][0]);
+
+let x = 0, y = 0, o = 0, v = 0;
+x = start(x, mat, o);
+let path = [];
+let out = []
+findPaths(mat, path, x, y, out, v);
+
+
+var file = './output.txt';
+fs.writeFile(file, out.toString(), function (err) {
+    if (err) {
+        console.log(err);
+    }
+}
+);
