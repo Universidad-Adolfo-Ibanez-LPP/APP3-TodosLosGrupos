@@ -22,3 +22,29 @@ function find1stPos(mat, n) {
         return find1stPos(mat, fila);
     }
 }
+
+function findPaths(mat, path, i, j, out) {
+    if (path.length === 0) {
+        i = find1stPos(mat, 0);
+        j = 0;
+    }
+    // base case
+    if (mat == null || mat.length == 0) {
+        return;
+    }
+
+    //obtengo los extremos de fila y columna
+    let M = mat.length;
+    let N = mat[0].length;
+
+    // Si llegue al final imprimo el path
+    if (j == N - 1) {
+        path.push(`[${i},${j}]`);
+        console.log(path);
+        out.push(`[${path}]`);
+        path.pop();
+        return;
+    }
+
+    // meto la pos actual como parte del camino
+    path.push(`[${i},${j}]`);
