@@ -103,6 +103,9 @@ function findPaths( mat, path,  i, j) {
 function validSpot(mat,x,y) { //Funciones que ven que es un 0 
     return mat[x][y] === 0;
 }
-
-
+//verifica si la celda a la que queremos mover no esta ya en el camino transitado (evitamos darnos vueltas innecesarias)
+function transitado(path,x,y){ //Ve que no se haya pasado por aqui
+    let nuevo=_.filter(path,function (camino) {return _.isEqual(camino,[x,y])})
+    return nuevo.length !== 0;
+}
 
