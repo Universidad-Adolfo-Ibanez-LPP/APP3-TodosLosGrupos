@@ -41,15 +41,6 @@ function findentrance(mat,number){ //FUNCION QUE SELECCIONA LA ENTRADA DEL LABER
 }
 
 
-function write(data){
-    fs.appendFile(__dirname+"/output.txt", data, err => {
-        if (err) {
-            console.error(err)
-            return
-        }
-    })
-}
-
 function findPaths( mat, path,  i, j) {
     // base case
     if (mat == null || mat.length == 0) {
@@ -72,31 +63,29 @@ function findPaths( mat, path,  i, j) {
     path.push([i,j]);
 
     // move right
-    if ((i >= 0 && i < M && j + 1 >= 0 && j + 1 < N `&& funcion que verifique que la casilla a la que va (j+1) sea un 0`)) {
-        if (`funcion que vea que la casilla a avanzar (j+1) no este dentro del camino ya transitado`===false){
+    if ((i >= 0 && i < M && j + 1 >= 0 && j + 1 < N && validSpot(mat,i,j+1)===true)) {
+        if (transitado(path,i,j+1)===false){
             findPaths(mat, path, i, j + 1);
         }
     }
     // move down
-    if ((i + 1 >= 0 && i + 1 < M && j >= 0 && j < N `&& funcion que verifique que la casilla a la que va (i+1) sea un 0`)) {
-        if (`funcion que vea que la casilla a avanzar (i+1) no este dentro del camino ya transitado`===false){
+    if ((i + 1 >= 0 && i + 1 < M && j >= 0 && j < N && validSpot(mat,i+1,j)===true)) {
+        if (transitado(path,i+1,j)===false){
             findPaths(mat, path, i + 1, j);
         }
     }
     // move up
-    if ((i-1 >= 0 && i-1 > -1 && j >= 0 && j < N `&& funcion que verifique que la casilla a la que va (i-1) sea un 0`)) {
-        if (`funcion que vea que la casilla a avanzar (i-1) no este dentro del camino ya transitado`=== false) {
+    if ((i-1 >= 0 && i-1 > -1 && j >= 0 && j < N && validSpot(mat,i-1,j)===true)) {
+        if (transitado(path,i-1,j) === false) {
             findPaths(mat, path, i - 1, j);
         }
     }
     // move left
-    if ((i === 0 && i + 1 < M && j-1 === 0 && j-1 > -1`&& funcion que verifique que la casilla a la que va (j-1) sea un 0 `)) {
-        if (`funcion que vea que la casilla a avanzar (j-1) no este dentro del camino ya transitado`===false){
+    if ((i === 0 && i + 1 < M && j-1 === 0 && j-1 > -1&& validSpot(mat,i,j-1)===true)) {
+        if (transitado(path,i,j-1)===false){
             findPaths(mat, path, i, j - 1);
         }
     }
-
-
     // backtrack: remove the current cell from the path
     path.pop();
 }
@@ -109,3 +98,11 @@ function transitado(path,x,y){ //Ve que no se haya pasado por aqui
     return nuevo.length !== 0;
 }
 
+function write(data){
+    fs.appendFile(__dirname+"/output.txt", data, err => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
+}
