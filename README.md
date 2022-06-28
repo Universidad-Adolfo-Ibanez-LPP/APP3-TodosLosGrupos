@@ -1,6 +1,6 @@
 ﻿APP 3
 
-¡Bienvenido a la App 3 del Grupo! Esperamos que la disfrute y cumpla con sus expectativas
+¡Bienvenido a la App 3 del Grupo 13! Esperamos que la disfrute y cumpla con sus expectativas
 
 Integrantes:
 
