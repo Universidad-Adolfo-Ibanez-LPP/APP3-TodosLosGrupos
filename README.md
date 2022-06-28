@@ -1,3 +1,3 @@
 # APP3-TodosLosGrupos
-
-Hola a todos. Todos los grupos deben subir solo una carpeta que contenga todo el proyecto! Gracias desde ya!
+Mario Rozas - Jose Castillo - Pablo Silva - Esteban Ahumada - Tomas Diaz
+Grupo 17
