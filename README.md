@@ -1,3 +1,15 @@
-# APP3-TodosLosGrupos
+﻿APP 3
 
-Hola a todos. Todos los grupos deben subir solo una carpeta que contenga todo el proyecto! Gracias desde ya!
+¡Bienvenido a la App 3 del Grupo! Esperamos que la disfrute y cumpla con sus expectativas
+
+Integrantes:
+
+Belén Álamo
+
+Antonio Cardoen
+
+Ignacio Court
+
+Fernanda Nicolás
+
+

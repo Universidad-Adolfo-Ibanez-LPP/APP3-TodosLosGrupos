@@ -28,8 +28,9 @@ function recursividad(tablero,x,y,recorrido,final_path){
     if(y+1 < tablero[0].length){
         if(tablero[x][y+1]===3){
             recorrido.push([x,y+1]);
-            final_path.push(recorrido)
-
+            recorrido.forEach(function(valor){
+                final_path.push(valor)
+            })
             return;
         }
     }
@@ -37,7 +38,9 @@ function recursividad(tablero,x,y,recorrido,final_path){
     if(x+1 < tablero.length){
         if(tablero[x+1][y]===3){
             recorrido.push([x+1,y]);
-            final_path = final_path.push(recorrido.list)
+            recorrido.forEach(function(valor){
+                final_path.push(valor)
+            })
             return;
         }
     }
@@ -45,7 +48,9 @@ function recursividad(tablero,x,y,recorrido,final_path){
     if(x-1 <= tablero.length){
         if(tablero[x-1][y]===3){
             recorrido.push([x-1,y]);
-            final_path = final_path.push(recorrido.list)
+            recorrido.forEach(function(valor){
+                final_path.push(valor)
+            })
             return;
         }
     }
@@ -53,7 +58,9 @@ function recursividad(tablero,x,y,recorrido,final_path){
     if(y-1 <= tablero[0].length){
         if(tablero[x][y-1]===3){
             recorrido.push([x,y-1]);
-            final_path = final_path.push(recorrido.list)
+            recorrido.forEach(function(valor){
+                final_path.push(valor)
+            })
             return;
         }
     }
