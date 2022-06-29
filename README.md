@@ -1,4 +1,5 @@
 
+
 # APP3-GRUPO7
 
 Integrantes:
@@ -18,6 +19,5 @@ Agustin Guerrero
 Vicente Ladevig
 Julio Gordo
 Valentina Gonzalez
-Martin Luna
 
 
