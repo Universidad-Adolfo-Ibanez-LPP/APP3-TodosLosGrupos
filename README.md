@@ -1,15 +1,23 @@
-﻿APP 3
 
-¡Bienvenido a la App 3 del Grupo 13! Esperamos que la disfrute y cumpla con sus expectativas
+
+# APP3-GRUPO7
 
 Integrantes:
+- Macarena Mujica
+- Josefina Olmos
+- Juan Ayala
+- Laura Martínez
+- Pablo Moya
 
-Belén Álamo
+# APP3-TodosLosGrupos
+Mario Rozas - Jose Castillo - Pablo Silva - Esteban Ahumada - Tomas Diaz
+Grupo 17
 
-Antonio Cardoen
+Alumnos G14:
 
-Ignacio Court
-
-Fernanda Nicolás
+Agustin Guerrero
+Vicente Ladevig
+Julio Gordo
+Valentina Gonzalez
 
 
